@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 16px;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 8px 16px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3367d6;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+      display: none;
+    }
+    .switch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .switch input[type="checkbox"] {
+      width: 40px;
+      height: 20px;
+      appearance: none;
+      background: #ccc;
+      border-radius: 10px;
+      position: relative;
+      cursor: pointer;
+    }
+    .switch input[type="checkbox"]:checked {
+      background: #4285f4;
+    }
+    .switch input[type="checkbox"]::before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: 0.3s;
+    }
+    .switch input[type="checkbox"]:checked::before {
+      left: 22px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="input-group">
+      <label for="replaceText">替换文字（1-10字）：</label>
+      <input type="text" id="replaceText" maxlength="10">
+      <span class="error" id="error">请输入1-10个字符</span>
+    </div>
+    <div class="switch">
+      <label for="autoReplace">自动替换：</label>
+      <input type="checkbox" id="autoReplace">
+    </div>
+    <button id="saveBtn">保存设置</button>
+    <button id="replaceBtn">替换页面文字</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
